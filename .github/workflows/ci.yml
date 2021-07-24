@@ -17,4 +17,4 @@ jobs:
           endpoint: oss-cn-hangzhou.aliyuncs.com
           access-key-id: ${{secrets.ACCESS_ID}}
           access-key-secret: ${{secrets.ACCESS_KEY_SECRET}}
-      - run: /home/runner/work/_actions/manyuanrong/setup-ossutil/v2.0/.bin/ossutil sync . oss://${{secrets.BUCKET}}/models
+      - run: ossutil cp -r . oss://${{secrets.BUCKET}}/models -u
