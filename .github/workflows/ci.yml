@@ -6,15 +6,17 @@ on:
     branches: [master]
 
 jobs:
-  Release:
-    name: Release
+  deploy:
+    name: Deploy
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@master
-      - uses: taixw2/deploy-aliyun-oss
+      - uses: steve9II/alioss-deploy-action
         with:
           region: oss-cn-hangzhou.aliyuncs.com
-          access-key-id: ${{secrets.ACCESS_ID}}
-          access-key-secret: ${{secrets.ACCESS_KEY_SECRET}}
+          accessKeyId: ${{secrets.ACCESS_ID}}
+          accessKeySecret: ${{secrets.ACCESS_KEY_SECRET}}
           bucket: ${{secrets.BUCKET}}
-          remote-dir: /models/
+          staticPath: .
+          deployPath: /models/
