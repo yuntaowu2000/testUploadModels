@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: taixw2/deploy-aliyun-oss@master
+      - uses: taixw2/deploy-aliyun-oss
         with:
           region: oss-cn-hangzhou.aliyuncs.com
           access-key-id: ${{secrets.ACCESS_ID}}
