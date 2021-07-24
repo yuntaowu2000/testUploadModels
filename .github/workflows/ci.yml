@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
-      - uses: steve9II/alioss-deploy-action
+      - uses: steve9II/alioss-deploy-action@v1
         with:
           region: oss-cn-hangzhou.aliyuncs.com
           accessKeyId: ${{secrets.ACCESS_ID}}
