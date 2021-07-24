@@ -1,0 +1,20 @@
+
+name: deploy
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  Release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: taixw2/deploy-aliyun-oss@v1
+        with:
+          region: oss-cn-hangzhou.aliyuncs.com
+          access-key-id: ${{secrets.ACCESS_ID}}
+          access-key-secret: ${{secrets.ACCESS_KEY_SECRET}}
+          bucket: ${{secrets.BUCKET}}
+          remote-dir: /models/
