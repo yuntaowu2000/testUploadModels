@@ -11,10 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@master
-      - uses: manyuanrong/setup-ossutil@v2.0
+      - uses: actions/checkout@v2
+      - uses: yizhoumo/setup-ossutil@v1
         with:
+          ossutil-version: '1.7.5' # Optional, default to '1.7.0'
           endpoint: oss-cn-hangzhou.aliyuncs.com
           access-key-id: ${{secrets.ACCESS_ID}}
           access-key-secret: ${{secrets.ACCESS_KEY_SECRET}}
-      - run: ossutil cp -r models oss://${{secrets.BUCKET}}/models/ -u
+      - run: ossutil sync models oss://${{secrets.BUCKET}}/models/ -u --delete
