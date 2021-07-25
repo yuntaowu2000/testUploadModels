@@ -18,4 +18,4 @@ jobs:
           endpoint: oss-cn-hangzhou.aliyuncs.com
           access-key-id: ${{secrets.ACCESS_ID}}
           access-key-secret: ${{secrets.ACCESS_KEY_SECRET}}
-      - run: ossutil sync models oss://${{secrets.BUCKET}}/models/ -u --delete
+      - run: ossutil sync models oss://${{secrets.BUCKET}}/models/ -u --delete -f
